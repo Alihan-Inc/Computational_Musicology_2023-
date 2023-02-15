@@ -20,4 +20,4 @@ Repository used for my "Computational Musicology" course portfolio.
   - The only gap maybe is that tracks by rapper Alonzo are gangsta rap in addition to hip-hop. Furthermore, Jul also makes hip-house music and tracks by Boef and Lijpe belong to nederhop and street rap. ultimately, they do fall under the umbrella genre "Hip hop".
   
   4. Identify several tracks in your corpus that are either extremely typical or atypical.
-   - Typical: Ciao La France (Alonzo), Namek (Jul) and Hoofdpijn (Lijpe)
+   - Typical: Ciao La France (Alonzo), Namek (Jul) and Hoofdpijn (Lijpe) 
