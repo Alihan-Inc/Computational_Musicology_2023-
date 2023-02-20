@@ -103,6 +103,6 @@ ggplot(cm23, mapping = aes(x = valence, y = energy, size=loudness)) +
     trans = "exp",
     guide = "none",
     range = c(1, 5)) +
-  ggtitle("Relationship between valence, energy and loudness in French & Dutch Hip hop")
+  ggtitle("Relationship between valence, energy and loudness in French & Dutch Hip hop") +
   theme_bw() 
 ```
