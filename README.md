@@ -4,11 +4,11 @@ Repository used for my "Computational Musicology" course portfolio.
 ## PLEASE DO NOT SHOW THIS PORTFOLIO IN CLASS
 
 
-My corpus (https://open.spotify.com/playlist/7KtmJXjsDmw8WEdtyL28L3?si=c2b30d69d504472a) consists of 86 tracks by the following French and Dutch rap artists and singers: Alonzo, Jul (French) Lijpe and Boef (Dutch). So the corpus consists of both French and Dutch hip-hop music (raps).\\ 
-I deliberately chose this corpus because I often like listening to French and Dutch rappers myself.\\ 
-In terms of style and approach, French and Dutch rap are different, but both are characterized by their ability to engage with the issues and experiences of their respective communities, and both have made significant contributions to the development of hip-hop as a global cultural form. It is therefore worth researching rap music of both languages where we will look at the differences and similarities between the two.\\
-\\
-The natural groups are French rappers (Alonzo & Jul) and Dutch rappers (Lijpe & Boef).\\ 
+My corpus (https://open.spotify.com/playlist/7KtmJXjsDmw8WEdtyL28L3?si=0448a854bfd84eb5) consists of 300 tracks by the following French and Dutch rap artists and singers: Alonzo, Jul, PNL, Gims (French) and Lijpe, Boef, Sevn Alias, Josylvio (Dutch). So the corpus consists of both French and Dutch hip-hop music (raps).\\ 
+I deliberately chose this corpus because I often like listening to French and Dutch rappers myself.  
+In terms of style and approach, French and Dutch rap are different, but both are characterized by their ability to engage with the issues and experiences of their respective communities, and both have made significant contributions to the development of hip-hop as a global cultural form. It is therefore worth researching rap music of both languages where we will look at the differences and similarities between the two.  
+  
+The natural groups are French rappers (Alonzo, Jul, PNL, Gims) and Dutch rappers (Lijpe, Boef, Sevn Alias, Josylvio).   
 French rap is more characterized by its strong tradition of chanson (which is a style of song that emphasizes vocal performance and poetic lyrics) and French rappers often incorporate African and Carribean music into their work, while Dutch rappers incorporate elements of gabber and house into their work.\\
 Both groups produce rap which means that they both use a very fast and energetic flow as well as techniques such as Onomatopoeaia (sue of words that imitate sounds, such as "boom" or "snap").\\ 
 However, I am curious to see what the analyses will show. Each rapper obviously has his own way of rapping and, of course, does not always use the same technique. It is therefore important to generalise as much as possible when comparing raps in two languages. Moreover, I tried to keep the rappers as representative as possible.\\ 
