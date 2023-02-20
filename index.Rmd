@@ -30,3 +30,79 @@ Description plot 1: In general, hip hop music is known for having a strong beat 
 Plot 1 really shows this relationship. A large proportion of tracks correspond to high energy and the "danceability" is well over 0.5 on average. Furthermore, we see interesting differences such as that the average tempo of Dutch raps is lower than French raps. The tempo distribution of French raps is greater than that of Dutch raps. This may be the reason why French raps more often give me more energy than Dutch raps.  
   
 Description plot 2: This plot shows the relationship between the features "valence", "energy" and "Loudness" in French and Dutch raps. In the figure, the higher the valence and tempo be, the higher the loudness of the tracks be. Furthermore, the average energy of Dutch raps is lower, but whether this is significantly lower is questionable, as a discussion point is that the corpus contains slightly less Dutch rap than French rap. Lastly, the distribution of valence is almost the same in both cases 
+
+```{r}
+library(tidyverse)
+library(spotifyr)
+
+df <- get_playlist_audio_features("", "7KtmJXjsDmw8WEdtyL28L3?si=78d85d115b1b42c9")
+
+conditions <- c("QUARTIERS NORD", "Les dernières volontés de Mozart (Symphony)", "Cœur blanc", "Deux frères", 
+                "L'EMPIRE DE MÉROÉ", "Dans la légende", "Capo Dei Capi Vol. II & III")
+df$language <- ifelse(df$track.album.name %in% conditions, "French", "Dutch")
+
+df_dutch <- df[df$language == "Dutch", ]
+df_french <- df[df$language == "French", ]
+ 
+cm23 <-
+  bind_rows( 
+    df_french |> mutate(category = "French"),
+    df_dutch |> mutate(category = "Dutch")
+  )
+```
+
+```{r}
+cm23 |>
+  mutate(
+    mode = ifelse(mode == 0, "Minor", "Major")
+  ) |>
+  ggplot(
+    aes(
+      x = tempo, 
+      y = danceability,
+      size = energy,
+      colour = mode
+    )
+  ) +
+  geom_point() +
+  geom_rug(linewidth = 0.2) +
+  facet_wrap(~ category) +
+  scale_x_continuous(
+    limits = c(50, 200),
+    breaks = c(50, 125, 200),
+    minor_breaks = NULL
+  ) +
+  scale_y_continuous(
+    limits = c(0, 1),
+    breaks = c(0, 0.50, 1),
+    minor_breaks = NULL
+  ) +
+  scale_colour_brewer(
+    type = "qual",
+    palette = "Dark2"
+  ) +
+  scale_size_continuous(
+    trans = "exp",
+    #guide = "none",
+    range = c(0, 2)
+  ) + 
+  theme_bw() +
+  labs(
+    x = "Tempo",
+    y = "Danceability",
+    colour = "Mode"
+  ) + ggtitle("Relationship between tempo, danceability, energy in French & Dutch Hip hop")
+```
+
+```{r}
+ggplot(cm23, mapping = aes(x = valence, y = energy, size=loudness)) +
+  geom_boxplot(alpha = 0.5) + 
+  geom_jitter(alpha = 0.5, color = "black") + 
+  facet_wrap(~ category) +
+  scale_size_continuous(
+    trans = "exp",
+    guide = "none",
+    range = c(1, 5)) +
+  ggtitle("Relationship between valence, energy and loudness in French & Dutch Hip hop")
+  theme_bw() 
+```
