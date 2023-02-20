@@ -27,7 +27,7 @@ cm23 |>
       size = loudness,
       colour = mode
     )
-  ) +
+  ) + 
   geom_point() +              
   geom_rug(linewidth = 0.2) + 
   facet_wrap(~ category) +   
