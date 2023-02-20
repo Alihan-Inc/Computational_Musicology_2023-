@@ -11,7 +11,7 @@ df_dutch <- df[df$language == "Dutch", ]
 df_french <- df[df$language == "French", ]
  
 cm23 <-
-  bind_rows(
+  bind_rows( 
     df_french |> mutate(category = "French"),
     df_dutch |> mutate(category = "Dutch")
   )
@@ -23,7 +23,7 @@ cm23 |>
   ) |>
   ggplot(
     aes(
-      x = tempo,
+      x = tempo, 
       y = danceability,
       size = energy,
       colour = mode
@@ -50,7 +50,7 @@ cm23 |>
     trans = "exp",
     #guide = "none",
     range = c(0, 2)
-  ) +
+  ) + 
   theme_bw() +
   labs(
     x = "Tempo",
@@ -60,7 +60,7 @@ cm23 |>
 
 ###############################PLOT_2###########################################
 ggplot(cm23, mapping = aes(x = valence, y = energy, size=loudness)) +
-  geom_boxplot(alpha = 0.5) +
+  geom_boxplot(alpha = 0.5) + 
   geom_jitter(alpha = 0.5, color = "black") + 
   facet_wrap(~ category) +
   scale_size_continuous(
