@@ -21,3 +21,8 @@ Repository used for my "Computational Musicology" course portfolio.
   
   4. Identify several tracks in your corpus that are either extremely typical or atypical.
    - Typical: Ciao La France (Alonzo), Namek (Jul) and Hoofdpijn (Lijpe) 
+   
+ ## Week 7
+Description plot 1: In general, hip hop music is known for having a strong beat and a high level of energy. This is reflected in the tempo and danceability of many hip hop tracks, which are often fast and rhythmically complex. 
+Plot 1 really shows this relationship. A large proportion of tracks correspond to high energy and the "danceability" is well over 0.5 on average. Furthermore, we see interesting differences such as that the average tempo of Dutch raps is lower than French raps. The tempo distribution of French raps is greater than that of Dutch raps. This may be the reason why French raps more often give me more energy than Dutch raps. 
+ 
