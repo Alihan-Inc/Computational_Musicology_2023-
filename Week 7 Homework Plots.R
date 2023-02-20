@@ -9,7 +9,7 @@ df$language <- ifelse(df$track.album.name %in% conditions, "French", "Dutch")
 
 df_dutch <- df[df$language == "Dutch", ]
 df_french <- df[df$language == "French", ]
-
+ 
 cm23 <-
   bind_rows(
     df_french |> mutate(category = "French"),
