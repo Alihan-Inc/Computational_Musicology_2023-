@@ -1,5 +1,6 @@
 library(tidyverse)
 library(spotifyr)
+library(plotly)
 
 df <- get_playlist_audio_features("", "7KtmJXjsDmw8WEdtyL28L3?si=78d85d115b1b42c9")
 
@@ -17,10 +18,10 @@ cm23 <-
   )
 
 ###############################PLOT_1###########################################
-cm23 |>
+p1 <- cm23 %>%
   mutate(
     mode = ifelse(mode == 0, "Minor", "Major")
-  ) |>
+  ) %>%
   ggplot(
     aes(
       x = tempo, 
@@ -58,8 +59,9 @@ cm23 |>
     colour = "Mode"
   ) + ggtitle("Relationship between tempo, danceability, energy in French & Dutch Hip hop")
 
+
 ###############################PLOT_2###########################################
-ggplot(cm23, mapping = aes(x = valence, y = energy, size=loudness)) +
+p2 <- ggplot(cm23, mapping = aes(x = valence, y = energy, size=loudness)) +
   geom_boxplot(alpha = 0.5) + 
   geom_jitter(alpha = 0.5, color = "black") + 
   facet_wrap(~ category) +
@@ -68,28 +70,9 @@ ggplot(cm23, mapping = aes(x = valence, y = energy, size=loudness)) +
     guide = "none",
     range = c(1, 5)) +
   ggtitle("Relationship between valence, energy and loudness in French & Dutch Hip hop") +
-  theme_bw() 
+  theme_bw()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ ggplotly(p1)
 
 
 

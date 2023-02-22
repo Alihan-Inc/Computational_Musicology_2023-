@@ -2,14 +2,18 @@
 title: "French vs. Dutch Rap Comparison (CM23)"
 author: "Alihan"
 date: "2023-02-15"
-output: html_document
+output: 
+  flexdashboard::flex_dashboard:
+    storyboard: true
+    theme: "cosmo"
+
 ---
 # Computational_Musicology_2023-
 Repository used for my "Computational Musicology" course portfolio. 
 
 ## PLEASE DO NOT SHOW THIS PORTFOLIO IN CLASS 
 
-## Week 6  
+### Week 6  
 My corpus (https://open.spotify.com/playlist/7KtmJXjsDmw8WEdtyL28L3?si=0448a854bfd84eb5) consists of 300 tracks by the following French and Dutch rap artists and singers: Alonzo, Jul, PNL, Gims (French) and Lijpe, Boef, Sevn Alias, Josylvio (Dutch). So the corpus consists of both French and Dutch hip-hop music (raps).   
 I deliberately chose this corpus because I often like listening to French and Dutch rappers myself.  
 In terms of style and approach, French and Dutch rap are different, but both are characterized by their ability to engage with the issues and experiences of their respective communities, and both have made significant contributions to the development of hip-hop as a global cultural form. It is therefore worth researching rap music of both languages where we will look at the differences and similarities between the two.  
@@ -24,8 +28,8 @@ The corpus consist of raps and so it belongs to "Hip hop music" or "rap music". 
 The only gap maybe is that tracks by rapper Alonzo are gangsta rap in addition to hip-hop. Furthermore, Jul also makes hip-house music and tracks by Boef and Lijpe belong to nederhop and street rap. ultimately, they do fall under the umbrella genre "Hip hop".  
   
 Some typical ypical tracks in my corpus are Ciao La France (Alonzo), Namek (Jul) and Hoofdpijn (Lijpe)   
-     
-## Week 7  
+
+### Week 7  
 Description plot 1: In general, hip hop music is known for having a strong beat and a high level of energy. This is reflected in the tempo and danceability of many hip hop tracks, which are often fast and rhythmically complex.   
 Plot 1 really shows this relationship. A large proportion of tracks correspond to high energy and the "danceability" is well over 0.5 on average. Furthermore, we see interesting differences such as that the average tempo of Dutch raps is lower than French raps. The tempo distribution of French raps is greater than that of Dutch raps. This may be the reason why French raps more often give me more energy than Dutch raps.  
   
@@ -51,6 +55,7 @@ cm23 <-
   )
 ```
 
+### Plot 1
 ```{r}
 cm23 |>
   mutate(
@@ -94,6 +99,7 @@ cm23 |>
   ) + ggtitle("Relationship between tempo, danceability, energy in French & Dutch Hip hop")
 ```
 
+### Plot 2
 ```{r}
 ggplot(cm23, mapping = aes(x = valence, y = energy, size=loudness)) +
   geom_boxplot(alpha = 0.5) + 
