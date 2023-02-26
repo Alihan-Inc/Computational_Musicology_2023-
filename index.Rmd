@@ -1,17 +1,20 @@
 ---
-title: "French vs. Dutch Rap Comparison (CM23)"
-author: "Alihan"
-date: "2023-02-15"
+title: "French vs. Dutch Rap Comparison"
+author: "Alihan Ince"
+date: "2023-02-26"
 output: 
   flexdashboard::flex_dashboard:
     storyboard: true
-    theme: "cosmo"
+    theme: "default"
 
 ---
-# Computational_Musicology_2023-
-Repository used for my "Computational Musicology" course portfolio. 
+Introduction {.storyboard} 
+=========================================
+<!-- # Computational_Musicology_2023- -->
+<!-- Repository used for my "Computational Musicology" course portfolio.  -->
 
-## PLEASE DO NOT SHOW THIS PORTFOLIO IN CLASS 
+<!-- ## PLEASE DO NOT SHOW THIS PORTFOLIO IN CLASS  -->
+
 
 ### Week 6  
 My corpus (https://open.spotify.com/playlist/7KtmJXjsDmw8WEdtyL28L3?si=0448a854bfd84eb5) consists of 300 tracks by the following French and Dutch rap artists and singers: Alonzo, Jul, PNL, Gims (French) and Lijpe, Boef, Sevn Alias, Josylvio (Dutch). So the corpus consists of both French and Dutch hip-hop music (raps).   
@@ -35,9 +38,12 @@ Plot 1 really shows this relationship. A large proportion of tracks correspond t
   
 Description plot 2: This plot shows the relationship between the features "valence", "energy" and "Loudness" in French and Dutch raps. In the figure, the higher the valence and tempo be, the higher the loudness of the tracks be. Furthermore, the average energy of Dutch raps is lower, but whether this is significantly lower is questionable, as a discussion point is that the corpus contains slightly less Dutch rap than French rap. Lastly, the distribution of valence is almost the same in both cases 
 
+
+
 ```{r}
 library(tidyverse)
 library(spotifyr)
+library(flexdashboard)
 
 df <- get_playlist_audio_features("", "7KtmJXjsDmw8WEdtyL28L3?si=78d85d115b1b42c9")
 
@@ -55,8 +61,20 @@ cm23 <-
   )
 ```
 
-### Plot 1
-```{r}
+<!-- # Dutch Tracks -->
+<!-- ```{r} -->
+<!-- valueBox(nrow(df_dutch), icon="fa-music") -->
+<!-- ``` -->
+
+<!-- # French Tracks -->
+<!-- ```{r} -->
+<!-- valueBox(nrow(df_french), icon="fa-music") -->
+<!-- ``` -->
+
+Plots {.storyboard} 
+=========================================
+### Relationship between tempo, danceability, energy in French & Dutch Hip hop 
+```{r, fig.width=8, fig.height=7}
 cm23 |>
   mutate(
     mode = ifelse(mode == 0, "Minor", "Major")
@@ -99,8 +117,8 @@ cm23 |>
   ) + ggtitle("Relationship between tempo, danceability, energy in French & Dutch Hip hop")
 ```
 
-### Plot 2
-```{r}
+### Relationship between valence, energy and loudness in French & Dutch Hip hop
+```{r, fig.width=8, fig.height=7}
 ggplot(cm23, mapping = aes(x = valence, y = energy, size=loudness)) +
   geom_boxplot(alpha = 0.5) + 
   geom_jitter(alpha = 0.5, color = "black") + 
