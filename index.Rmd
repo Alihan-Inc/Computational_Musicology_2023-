@@ -1,21 +1,18 @@
 ---
-title: "French vs. Dutch Rap Comparison"
+title: "Computational Musicology- Final Portfolio"
 author: "Alihan Ince"
-date: "2023-02-26"
+date: ""
 output: 
   flexdashboard::flex_dashboard:
     storyboard: true
     theme: "default"
 
 ---
-Introduction {.storyboard} 
+Comparing French and Dutch Raps 
 =========================================
-<!-- # Computational_Musicology_2023- -->
-<!-- Repository used for my "Computational Musicology" course portfolio.  -->
 
-<!-- ## PLEASE DO NOT SHOW THIS PORTFOLIO IN CLASS  -->
-
-
+Column 
+-------------------------------------
 ### Exploring the Differences and Similarities Between Two Cultural Forms 
 
 #### Introduction: The Corpus and the Purpose of the Study
@@ -37,7 +34,12 @@ The only gap maybe is that tracks by rapper Alonzo are gangsta rap in addition t
 #### Sample Tracks
 Some typical typical sample tracks in my corpus are Ciao La France (Alonzo), Namek (Jul) and Hoofdpijn (Lijpe)   
 
-
+Column 
+-------------------------------------
+### The Corpus 
+<!-- ```{=html} -->
+<!-- <iframe src="https://open.spotify.com/embed/playlist/7KtmJXjsDmw8WEdtyL28L3?utm_source=generator&theme=0" width="100%" height="100%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe> -->
+<!-- ``` -->
 
 ```{r}
 library(tidyverse)
@@ -72,7 +74,7 @@ cm23 <-
 <!-- valueBox(nrow(df_french), icon="fa-music") -->
 <!-- ``` -->
 
-Visualisations {.storyboard} 
+Feature analysis {.storyboard} 
 =========================================
 ### "The Energetic Beat: Exploring the Relationship between Tempo and Danceability in Hip Hop Music" 
 ```{r, fig.width=8, fig.height=7}
@@ -143,10 +145,23 @@ ggplot(cm23, mapping = aes(x = valence, y = energy, size=loudness)) +
 
 This plot shows the relationship between the features "valence", "energy" and "Loudness" in French and Dutch raps. In the figure, the higher the valence and tempo be, the higher the loudness of the tracks be. Furthermore, the average energy of Dutch raps is lower, but whether this is significantly lower is questionable, as a discussion point is that the corpus contains slightly less Dutch rap than French rap. Lastly, the distribution of valence is almost the same in both cases
 
-### "Chromagram of a recording of PNL; Ryuk."
-```{r, fig.width=8, fig.height=7}
+Chromagram  
+=========================================
+Column 
+-------------------------------------
+***
+In the case of French rap music in the corpus, analyzing the chromagram can provide insights into the tonal characteristics of the music and how they differ from other genres or regions. For example, it might reveal that French rappers tend to use certain chords or tonal centers more frequently than rappers from other countries, or that they use different melodic patterns or scales.
+
+Analyzing the chromagram of a track of French rap such as this one could also be useful for identifying commonalities and differences between individual artists or sub-genres within French rap. For instance, it could reveal that one artist tends to use a particular tonal center or scale more frequently than others, or that certain sub-genres of French rap have distinct melodic or harmonic characteristics.
+
+Comparing the chromagrams of two French tracks (outliers), "INTRO" and "MAINTENANT" from the playlist reveals significant differences in their pitch distribution. In "INTRO", over time, the focus of the pitches is on different Chords such as C, D and G, whereas in "MAINTENANT", there is a strong concentration of pitches around chord B and G. This means that "INTRO" is more complex and it has more different chord progressions. 
+
+Column 
+-------------------------------------
+### "Chromagram of a recording of GIMS; INTRO." (Lowest danceability with one of the highest tempo)
+```{r, fig.width=15, fig.height=7}
  wood <-
-   get_tidy_audio_analysis("50v2QOArNfK21a4xV8O5QM?si=950cb780b737438b") |>
+   get_tidy_audio_analysis("6H8njIysTyNsjD5CyPtqwN") |>
    select(segments) |>
    unnest(segments) |>
    select(start, duration, pitches)
@@ -168,8 +183,40 @@ This plot shows the relationship between the features "valence", "energy" and "L
    scale_fill_viridis_c()
 ```
 
-***
-In the case of French rap music in the corpus, analyzing the chromagram can provide insights into the tonal characteristics of the music and how they differ from other genres or regions. For example, it might reveal that French rappers tend to use certain chords or tonal centers more frequently than rappers from other countries, or that they use different melodic patterns or scales.
 
-Analyzing the chromagram of a track of French rap such as this one could also be useful for identifying commonalities and differences between individual artists or sub-genres within French rap. For instance, it could reveal that one artist tends to use a particular tonal center or scale more frequently than others, or that certain sub-genres of French rap have distinct melodic or harmonic characteristics.
+-------------------------------------
+### "Chromagram of a recording of GIMS; MAINTENANT" (Highest energy with averaged valence)
+```{r, fig.width=15, fig.height=7}
+ wood <-
+   get_tidy_audio_analysis("5y2WMZ9UAYsA7qxRENID6l") |>
+   select(segments) |>
+   unnest(segments) |>
+   select(start, duration, pitches)
+
+ wood |>
+   mutate(pitches = map(pitches, compmus_normalise, "euclidean")) |>
+   compmus_gather_chroma() |> 
+   ggplot(
+     aes(
+       x = start + duration / 2,
+       width = duration,
+       y = pitch_class,
+       fill = value
+     )
+   ) +
+   geom_tile() +
+   labs(x = "Time (s)", y = NULL, fill = "Magnitude") +
+   theme_minimal() +
+   scale_fill_viridis_c()
+```
+
+
+Ceptrogram {.storyboard} 
+=========================================
+
+Self-similarity Matrices {.storyboard} 
+=========================================
+
+Conclusion {.storyboard} 
+=========================================
 
