@@ -77,7 +77,30 @@ p2 <- ggplot(cm23, mapping = aes(x = valence, y = energy, size=loudness)) +
 
 ################################################################################
  wood <-
-   get_tidy_audio_analysis("50v2QOArNfK21a4xV8O5QM?si=950cb780b737438b") |>
+   get_tidy_audio_analysis("6H8njIysTyNsjD5CyPtqwN") |>
+   select(segments) |>
+   unnest(segments) |>
+   select(start, duration, pitches)
+ 
+ wood |>
+   mutate(pitches = map(pitches, compmus_normalise, "euclidean")) |>
+   compmus_gather_chroma() |> 
+   ggplot(
+     aes(
+       x = start + duration / 2,
+       width = duration,
+       y = pitch_class,
+       fill = value
+     )
+   ) +
+   geom_tile() +
+   labs(x = "Time (s)", y = NULL, fill = "Magnitude") +
+   theme_minimal() +
+   scale_fill_viridis_c()
+ 
+ ################################################################################
+ wood <-
+   get_tidy_audio_analysis("5y2WMZ9UAYsA7qxRENID6l") |>
    select(segments) |>
    unnest(segments) |>
    select(start, duration, pitches)
@@ -97,7 +120,9 @@ p2 <- ggplot(cm23, mapping = aes(x = valence, y = energy, size=loudness)) +
    labs(x = "Time (s)", y = NULL, fill = "Magnitude") +
    theme_minimal() +
    scale_fill_viridis_c()
-
+ 
+ ################################################################################
+ 
 
 
 
