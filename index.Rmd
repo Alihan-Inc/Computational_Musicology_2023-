@@ -37,9 +37,9 @@ Some typical typical sample tracks in my corpus are Ciao La France (Alonzo), Nam
 Column 
 -------------------------------------
 ### The Corpus 
-<!-- ```{=html} -->
-<!-- <iframe src="https://open.spotify.com/embed/playlist/7KtmJXjsDmw8WEdtyL28L3?utm_source=generator&theme=0" width="100%" height="100%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe> -->
-<!-- ``` -->
+```{=html}
+<iframe src="https://open.spotify.com/embed/playlist/7KtmJXjsDmw8WEdtyL28L3?utm_source=generator&theme=0" width="100%" height="100%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
+```
 
 ```{r}
 library(tidyverse)
