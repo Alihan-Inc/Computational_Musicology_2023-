@@ -37,9 +37,9 @@ Some typical typical sample tracks in my corpus are Ciao La France (Alonzo), Nam
 Column 
 -------------------------------------
 ### The Corpus 
-```{=html}
-<iframe src="https://open.spotify.com/embed/playlist/7KtmJXjsDmw8WEdtyL28L3?utm_source=generator&theme=0" width="100%" height="100%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
-```
+<!-- ```{=html} -->
+<!-- <iframe src="https://open.spotify.com/embed/playlist/7KtmJXjsDmw8WEdtyL28L3?utm_source=generator&theme=0" width="100%" height="100%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe> -->
+<!-- ``` -->
 
 ```{r}
 library(tidyverse)
@@ -76,7 +76,7 @@ cm23 <-
 
 Feature analysis {.storyboard} 
 =========================================
-### "The Energetic Beat: Exploring the Relationship between Tempo and Danceability in Hip Hop Music" 
+### The Energetic Beat: Exploring the Relationship between Tempo and Danceability in Hip Hop Music 
 ```{r, fig.width=8, fig.height=7}
 p1 <- cm23 %>%
   mutate(
@@ -127,7 +127,7 @@ ggplotly(p1)
 In general, hip hop music is known for having a strong beat and a high level of energy. This is reflected in the tempo and danceability of many hip hop tracks, which are often fast and rhythmically complex.   
 This plot really shows this relationship. A large proportion of tracks correspond to high energy and the "danceability" is well over 0.5 on average. Furthermore, we see interesting differences such as that the average tempo of Dutch raps is lower than French raps. The tempo distribution of French raps is greater than that of Dutch raps. This may be the reason why French raps more often give me more energy than Dutch raps.  
 
-### "Rhythmic Resonance bewteen Valence, Energy, and Loudness in French and Dutch Raps"
+### Rhythmic Resonance bewteen Valence, Energy, and Loudness in French and Dutch Raps
 ```{r, fig.width=8, fig.height=7}
 ggplot(cm23, mapping = aes(x = valence, y = energy, size=loudness)) +
   geom_boxplot(alpha = 0.5) + 
@@ -144,6 +144,22 @@ ggplot(cm23, mapping = aes(x = valence, y = energy, size=loudness)) +
 ***
 
 This plot shows the relationship between the features "valence", "energy" and "Loudness" in French and Dutch raps. In the figure, the higher the valence and tempo be, the higher the loudness of the tracks be. Furthermore, the average energy of Dutch raps is lower, but whether this is significantly lower is questionable, as a discussion point is that the corpus contains slightly less Dutch rap than French rap. Lastly, the distribution of valence is almost the same in both cases
+
+
+### Histograms of key modes for French and Dutch tracks in the corpus
+```{r, fig.width=8, fig.height=7}
+histcm23mode <- cm23 |>
+     ggplot(aes(x = key_mode)) +
+     geom_histogram(stat="count") +
+     facet_wrap(~category) +
+     ggtitle("The key mode the track is in for French & Dutch Hip hop") +
+     theme_bw() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+ggplotly(histcm23mode)
+```
+
+***
+This plot shows the key names and key modes the track is in for French and Dutch tracks.
 
 Chromagram  
 =========================================
