@@ -3,7 +3,7 @@ library(spotifyr)
 library(plotly)
 library(compmus)
 
-df <- get_playlist_audio_features("", "7KtmJXjsDmw8WEdtyL28L3?si=78d85d115b1b42c9")
+df <- get_playlist_audio_features("", "7KtmJXjsDmw8WEdtyL28L3?si=bc8137fcca564e11")
 
 conditions <- c("QUARTIERS NORD", "Les dernières volontés de Mozart (Symphony)", "Cœur blanc", "Deux frères", 
                 "L'EMPIRE DE MÉROÉ", "Dans la légende", "Capo Dei Capi Vol. II & III")
