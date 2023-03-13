@@ -146,7 +146,7 @@ ggplot(cm23, mapping = aes(x = valence, y = energy, size=loudness)) +
 This plot shows the relationship between the features "valence", "energy" and "Loudness" in French and Dutch raps. In the figure, the higher the valence and tempo be, the higher the loudness of the tracks be. Furthermore, the average energy of Dutch raps is lower, but whether this is significantly lower is questionable, as a discussion point is that the corpus contains slightly less Dutch rap than French rap. Lastly, the distribution of valence is almost the same in both cases
 
 
-### Histograms of key modes for French and Dutch tracks in the corpus
+### Histograms of key modes for French and Dutch tracks in the corpus (WEEK 10)
 ```{r, fig.width=8, fig.height=7}
 histcm23mode <- cm23 |>
      ggplot(aes(x = key_mode)) +
@@ -159,12 +159,12 @@ ggplotly(histcm23mode)
 ```
 
 ***
-This plot shows the key names and key modes the track is in for French and Dutch tracks.
+This graph shows the number of times a major/minor key appeared in the entire corpus. It shows that almost every key appears in the corpus, but looking at the Dutch corpus, the D# major does not appear and F major appeared only once. This result corresponds to the French corpus in which D# major appeared only once and F# major did not appear at all. Moreover, A# major did not occur at all in the French corpus while it occurred five times in the Dutch corpus. Among other things, this would perhaps explain the difference between the two corpora. In the end, no difference is directly visible in the number of times a particular key did or did not occur in the corpus. 
 
-### Use variation (standard deviation) in loudness, tempo, or durations as a variable in one of your visualisations.
+### SD Tempo vs. Mean Tempo (WEEK 10 - Track-Level).
 ```{r, fig.width=8, fig.height=7}
-sliced_french <- df_french |> slice(1:30) |> add_audio_analysis()
-sliced_dutch <- df_dutch |> slice(1:30) |> add_audio_analysis()
+sliced_french <- df_french |> slice(1:50) |> add_audio_analysis()
+sliced_dutch <- df_dutch |> slice(1:50) |> add_audio_analysis()
 
 sliced_df <-
   sliced_french |>
@@ -208,7 +208,34 @@ sliced_df |>
 ```
 
 ***
-...
+The standard deviation, denoted by σ, is a metric that quantifies the degree of dispersion of data with respect to the mean. When the standard deviation is low, the data points tend to be tightly clustered around the mean, while a high standard deviation implies that the data points are widely spread out [1]. 
+In this graph, for each track, the Standard Deviation of "tempo" is plotted against the Average Tempo (bpm) in that same track. This has been done for both French and Dutch Raps. Thereby, the variable Volume (in dBFS) and Duration (in minutes) can be read from the graph. From the graph we can see that, as shown earlier, Dutch raps are clustered closer together when it comes to tempo. In this graph, you can see a similar result, namely, that Dutch rap has a lower average tempo than French Raps. I experience this difference in tempo myself when listening to Dutch and French raps. The average tempo of French raps are generally more spread out. The Standard Deviation in tempo for both genres (in this case languages) do not differ much from each other. We can see that when the average tempo is lower, the Standard Deviation is higher. Finally, we also see that tracks with a higher volume have a higher average tempo and a lower Standard Deviation and generally last more than three minutes. 
+
+Reference: 
+1. U.S. National Library of Medicine. (n.d.). Standard Deviation. https://www.nlm.nih.gov/nichsr/stats_tutorial/section2/mod8_sd.html
+
+###  The most promising herald, poised to set these languages asunder, an unmistakable marker of distinction! (WEEK 10 - Track-Level).
+```{r, fig.width=8, fig.height=7}
+sliced_df |>
+  mutate(
+    timbre =
+      map(
+        segments,
+        compmus_summarise,
+        timbre,
+        method = "mean"
+      )
+  ) |>
+  select(genre, timbre) |>
+  compmus_gather_timbre() |>
+  ggplot(aes(x = basis, y = value, fill = genre)) +
+  geom_violin() +
+  scale_fill_viridis_d() +
+  labs(x = "Spotify Timbre Coefficients", y = "", fill = "Genre")
+```
+
+***
+In this graph, the average timbre coefficients in French and Dutch raps were analysed to come to a conclusion about which coefficient might make the most difference. Looking at the graph, we see that almost all coefficients are the same for both genres. To still point out a difference, we can say that coefficient 7 differs the most. So, coefficient 7 looks like the most promising marker distinguishing these genres, but we should verify that with cepstrograms and listening tests of specific pieces.
 
 Chromagram  
 =========================================
@@ -463,16 +490,17 @@ bztdutch |>
 
 ```
 
-Keygram 
+Keygram (Week 10)
 =========================================
 Column
 -------------------------------------
-the differences and similarities between French and Dutch rap music were explored through a collection of 300 tracks by French and Dutch rap artists. The portfolio found that French rap is characterized by its strong tradition of chanson and the incorporation of African and Caribbean music, while Dutch rap incorporates elements of gabber and house. Both groups use a fast and energetic flow, but there are differences in tempo and energy levels. 
+The recording of GIMS; Apres Vous Madame is in the key of Am en Em and this is also obvious from the keygram. Throughout the piece, road keys Am and Em are 1 than all other keys and this can also be deduced from the graph on the right. After about 120th seconds, the keygram scores less well on Am, but overall it is correct. 
+
+Furthermore, the recording of Boef; Probleem is in the key of GM, F, Eb, Cm and Dm. From the Keygram, this can also be seen if we look at G: min and and C: min, for example. After the 100th seconds, things get a bit worse. The keyrgram is getting worse. 
 
 Column
 -------------------------------------
-### "Keygram of a recording of GIMS; Apres Vous Madame" (French track also in "liked Songs" playlist)
-```{r, fig.width=15, fig.height=7}
+```{r}
 circshift <- function(v, n) {
   if (n == 0) v else c(tail(v, n), head(v, -n))
 }
@@ -558,8 +586,10 @@ key_templates <-
     "B:maj", circshift(major_key, 11),
     "D#:min", circshift(minor_key, 3)
   )
+```
 
-
+### "Keygram of a recording of GIMS; Apres Vous Madame" (French track also in "liked Songs" playlist)
+```{r, fig.width=15, fig.height=7}
 Keygram <-
   get_tidy_audio_analysis("1kVQzCxcSVhqf4rLJyGk50?si=d11761254d384f40") |>
   compmus_align(sections, segments) |>
@@ -586,8 +616,39 @@ Keygram |>
   scale_fill_viridis_c(guide = "none") +
   theme_minimal() +
   labs(x = "Time (s)", y = "")
-
 ```
+
+### "Keygram of a recording of Boef; Probleem" (Dutch track also in "liked Songs" playlist)
+```{r, fig.width=15, fig.height=7}
+Keygram <-
+  get_tidy_audio_analysis("1L8sanepRgDJlQTsPQ4mU1?si=a798c820436e4bdf") |>
+  compmus_align(sections, segments) |>
+  select(sections) |>
+  unnest(sections) |>
+  mutate(
+    pitches =
+      map(segments,
+          compmus_summarise, pitches,
+          method = "mean", norm = "manhattan"
+      )
+  )
+
+Keygram |> 
+  compmus_match_pitch_template(
+    key_templates,         # Change to chord_templates if descired
+    method = "euclidean",  # Try different distance metrics
+    norm = "manhattan"     # Try different norms
+  ) |>
+  ggplot(
+    aes(x = start + duration / 2, width = duration, y = name, fill = d)
+  ) +
+  geom_tile() +
+  scale_fill_viridis_c(guide = "none") +
+  theme_minimal() +
+  labs(x = "Time (s)", y = "")
+```
+
+
 
 Conclusion 
 =========================================
