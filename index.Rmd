@@ -80,14 +80,16 @@ Feature analysis {.storyboard}
 ```{r, fig.width=8, fig.height=7}
 p1 <- cm23 %>%
   mutate(
-    mode = ifelse(mode == 0, "Minor", "Major")
+    mode = ifelse(mode == 0, "Minor", "Major"),
+    name = track.name
   ) %>%
   ggplot(
     aes(
       x = tempo, 
       y = danceability,
       size = energy,
-      colour = mode
+      colour = mode,
+      name = name
     )
   ) +
   geom_point() +
