@@ -73,6 +73,60 @@ cm23 <-
 <!-- ```{r} -->
 <!-- valueBox(nrow(df_french), icon="fa-music") -->
 <!-- ``` -->
+New Stuff (Week 11) {.storyboard} 
+=========================================
+### Tempo Tales: Exploring the Rhythmic Differences between French and Dutch Tracks
+```{r, fig.width=8, fig.height=7}
+histcm23mode <- cm23 |>
+  ggplot(aes(x = tempo)) +
+  geom_histogram(aes(y = after_stat(density)),
+                 colour = 1, fill = "grey") +
+  geom_density() +
+  facet_wrap(~category) +
+  ggtitle("Histogram of tempi for French- and Dutch HipHop Tracks ") +
+  theme_bw() 
+
+ggplotly(histcm23mode)
+```
+
+***
+
+The histogram shows the overall estimated tempo of each track in both corpora (French and Dutch) in Beats Per Minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration [1]. If we look at the density plots, we can see that the tempo of Dutch tracks has been distributed differently from those of French tracks. As it happens, Dutch tracks mainly have a tempo between 90 and 105 BPM, whereas the tempo of French tracks has been more equally distributed between 90 and 150 BPM. These results could also be seen in the "The Energetic Beat" plot from week 7 in "Feature analysis", where the relationship between Tempo, Danceability has been explored. 
+
+1. Web API Reference | Spotify for Developers. (n.d.). https://developer.spotify.com/documentation/web-api/reference/#/operations/get-audio-features
+
+
+### Tempograms of a recording of PNL; Au DD” (French)
+```{r, fig.width=8, fig.height=7}
+# Tempogram of a recording of PNL; Au DD” (French)
+audd <- get_tidy_audio_analysis("115Hll8WWkQLeiDyXpgr47?si=97a15a00b86749f7")
+audd |>
+  tempogram(window_size = 8, hop_size = 1, cyclic = TRUE) |>
+  ggplot(aes(x = time, y = bpm, fill = power)) +
+  geom_raster() +
+  scale_fill_viridis_c(guide = "none") +
+  labs(x = "Time (s)", y = "Tempo (BPM)") +
+  theme_classic()
+```
+
+*** 
+The following plot is a Tempogram for "Au DD". As it happens, the track has a relatively steady tempo with occasional variations. I think taht these variations (highlights) are visual noise which is a product of tempo octaves. From the 150th seconds onwards, you can see that the relatively stable pattern changes to a higher tempo (between 150th and 170th second) and suddenly to a lower tempo (around 175th second). This can be attributed to the fact that between 150th and 170th second there is more music dropping out paired with a higher instrumentalness and speechiness. In the 175th second, there is a short silence both in speechiness and music overall. Furthermore, at the end, it can be seen that there is more frequent tempo changes, which can be explained by the sluggish instrument playing (usually every track ends like this). In the tempogram of this track the highlights at the end, seen in it's self similarity matrices are visible. 
+
+### Tempograms of a recording of Boef; Treinstation” (Dutch)
+```{r, fig.width=8, fig.height=7}
+# Tempogram of a recording of Boef; Treinstation” (Dutch)
+treinstation <- get_tidy_audio_analysis("7yHf12Fxf8I1Q8Lhq6XqpZ?si=bc426059e480488a")
+treinstation |>
+  tempogram(window_size = 8, hop_size = 1, cyclic = TRUE) |>
+  ggplot(aes(x = time, y = bpm, fill = power)) +
+  geom_raster() +
+  scale_fill_viridis_c(guide = "none") +
+  labs(x = "Time (s)", y = "Tempo (BPM)") +
+  theme_classic()
+```
+
+*** 
+As compared to the previous track "Au DD", this track "Treinstation" exhibits more frequent tempo changes and has more highlights besides its relatively stable tempo curve. from the moment the 30 tyh second is reached, the tempo curve leaves its stability for a short time (around 30 seconds) due to the change in instruments. This also happens in the 80 th second where more instruments drop out. In the tempogram of this track, the change in tempo curve could also be seen in the self similarity matrices, especially at points where some pieces get repeated (parallel lines to the diagonal). 
 
 Feature analysis {.storyboard} 
 =========================================
@@ -163,7 +217,7 @@ ggplotly(histcm23mode)
 ***
 This graph shows the number of times a major/minor key appeared in the entire corpus. It shows that almost every key appears in the corpus, but looking at the Dutch corpus, the D# major does not appear and F major appeared only once. This result corresponds to the French corpus in which D# major appeared only once and F# major did not appear at all. Moreover, A# major did not occur at all in the French corpus while it occurred five times in the Dutch corpus. Among other things, this would perhaps explain the difference between the two corpora. In the end, no difference is directly visible in the number of times a particular key did or did not occur in the corpus. 
 
-### SD Tempo vs. Mean Tempo (WEEK 10 - Track-Level).
+### SD Tempo vs. Mean Tempo (Track-Level).
 ```{r, fig.width=8, fig.height=7}
 sliced_french <- df_french |> slice(1:50) |> add_audio_analysis()
 sliced_dutch <- df_dutch |> slice(1:50) |> add_audio_analysis()
@@ -216,7 +270,7 @@ In this graph, for each track, the Standard Deviation of "tempo" is plotted agai
 Reference: 
 1. U.S. National Library of Medicine. (n.d.). Standard Deviation. https://www.nlm.nih.gov/nichsr/stats_tutorial/section2/mod8_sd.html
 
-###  The most promising herald, poised to set these languages asunder, an unmistakable marker of distinction! (WEEK 10 - Track-Level).
+###  The most promising herald, poised to set these languages asunder, an unmistakable marker of distinction! (Track-Level).
 ```{r, fig.width=8, fig.height=7}
 sliced_df |>
   mutate(
@@ -492,7 +546,7 @@ bztdutch |>
 
 ```
 
-Keygram (Week 10)
+Keygram 
 =========================================
 Column
 -------------------------------------
