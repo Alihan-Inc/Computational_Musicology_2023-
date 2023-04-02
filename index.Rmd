@@ -831,9 +831,7 @@ compmus23_dist |>
 
 ***
 
-The histogram shows the overall estimated tempo of each track in both corpora (French and Dutch) in Beats Per Minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration [1]. If we look at the density plots, we can see that the tempo of Dutch tracks has been distributed differently from those of French tracks. As it happens, Dutch tracks mainly have a tempo between 90 and 105 BPM, whereas the tempo of French tracks has been more equally distributed between 90 and 150 BPM. These results could also be seen in the "The Energetic Beat" plot from week 7 in "Feature analysis", where the relationship between Tempo, Danceability has been explored. 
-
-1. Web API Reference | Spotify for Developers. (n.d.). https://developer.spotify.com/documentation/web-api/reference/#/operations/get-audio-features
+There are three primary types of linkage: single, average, and complete. In this dendrogram, the type "complete" was chosen because it gave the best cluster result. Using complete clustering for a playlist of fifteen French and fifteen Dutch tracks, one can clearly see that there are two main clusters. The reason that there are not of all tracks (there are 337) is because it became computationally very heavy and the graphs would otherwise look very cluttered.  The left cluster clearly contains (10/12) x 100% = 83.3% Dutch raps and the right cluster consists of (13/18) x 100% = 72.2% French raps. Thus, the language and features of the raps are clearly visible in this clustering.  From this, it can be concluded that French and Dutch raps clearly differ from each other. However, it remains to be seen which features cause this difference. For this we will have to see which features are most important in creating clusters. This can be seen under "Feature Importance (Feature Set)". 
 
 
 ### Heatmap
@@ -847,7 +845,8 @@ heatmaply(
 ```
 
 *** 
-The following plot is a Tempogram for "Au DD". As it happens, the track has a relatively steady tempo with occasional variations. I think taht these variations (highlights) are visual noise which is a product of tempo octaves. From the 150th seconds onwards, you can see that the relatively stable pattern changes to a higher tempo (between 150th and 170th second) and suddenly to a lower tempo (around 175th second). This can be attributed to the fact that between 150th and 170th second there is more music dropping out paired with a higher instrumentalness and speechiness. In the 175th second, there is a short silence both in speechiness and music overall. Furthermore, at the end, it can be seen that there is more frequent tempo changes, which can be explained by the sluggish instrument playing (usually every track ends like this). In the tempogram of this track the highlights at the end, seen in it's self similarity matrices are visible. 
+Looking closely at this heatmap, one can see that the bottom left part of the heatmap is clearly lighter in colour. In addition, the top right part is also clearly lighter (greener/yellower) coloured and the middle forms a dark coloured diagonal from top left to bottom right. What can be concluded from this is that most Dutch raps (bottom left) clearly differ from French raps (top right) when it comes to features c08, speechiness, c06, C#/Db. Indeed, these features are stronger in Dutch raps than French raps. Moreover, we see that French raps clearly differ from Dutch raps when it comes to c09, instrumentalness, c12, and tempo. Earlier, we also saw that tempo was clearly a features that was less widespread in Dutch raps and more widespread in French raps. In short, there is clearly a distinction in both the most important features and the language of raps.
+
 
 ### Feature Importance (Feature Set)
 ```{r, fig.width=8, fig.height=7}
@@ -938,7 +937,7 @@ workflow() |>
 ```
 
 *** 
-As compared to the previous track "Au DD", this track "Treinstation" exhibits more frequent tempo changes and has more highlights besides its relatively stable tempo curve. from the moment the 30 tyh second is reached, the tempo curve leaves its stability for a short time (around 30 seconds) due to the change in instruments. This also happens in the 80 th second where more instruments drop out. In the tempogram of this track, the change in tempo curve could also be seen in the self similarity matrices, especially at points where some pieces get repeated (parallel lines to the diagonal). 
+This plot clearly shows which features are important and the information from it can clearly be used to get some idea about which features would possibly contribute most to, for example, clustering. However, the problem is that if the code is run over and over again each time, the top few features may vary more or less slightly. It can clearly be seen that features like speechiness, the 9th coefficient of the timbre vector, and instrumentalness are the most important features. There are a total of eight features whose value of "importance" is higher than 0.5. So I decided to use these features in the "Heatmap" section (left button). The most important two features: speechiness and the 9th coefficient of the timbre vector will be used in "Feature Importance (feature Set Plot)" (right button) to see how the tracks differ from each other and whether Dutch and French tracks clearly form a separate cluster on their own or not. 
 
 ### Feature Importance (Feature Set Plot)
 ```{r, fig.width=8, fig.height=7}
@@ -955,7 +954,7 @@ compmus23class_features |>
 ```
 
 *** 
-As compared to the previous track "Au DD", this track "Treinstation" exhibits more frequent tempo changes and has more highlights besides its relatively stable tempo curve. from the moment the 30 tyh second is reached, the tempo curve leaves its stability for a short time (around 30 seconds) due to the change in instruments. This also happens in the 80 th second where more instruments drop out. In the tempogram of this track, the change in tempo curve could also be seen in the self similarity matrices, especially at points where some pieces get repeated (parallel lines to the diagonal). 
+In these plots, the features "speechiness" are plotted against the 9th coefficient of the timbre vector. Additionally, the size of the bubbles represents the strength of the energy. Unfortunately, there are few data points used in this plot, which makes generalization and drawing conclusions less reliable and accurate. However, we can clearly see that French rap has lower speechiness and higher c09, while Dutch rap has a lower average c09 but a slightly higher speechiness. It is also evident that the tracks form clusters on their own.
 
 Conclusion 
 =========================================
