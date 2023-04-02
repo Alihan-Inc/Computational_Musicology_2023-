@@ -16,7 +16,7 @@ Column
 ### Exploring the Differences and Similarities Between Two Cultural Forms 
 
 #### Introduction: The Corpus and the Purpose of the Study
-[My corpus](https://open.spotify.com/playlist/7KtmJXjsDmw8WEdtyL28L3?si=0448a854bfd84eb5) consists of 300 tracks by the following French and Dutch rap artists and singers: Alonzo, Jul, PNL, Gims (French) and Lijpe, Boef, Sevn Alias, Josylvio (Dutch). So the corpus consists of both French and Dutch hip-hop music (raps).   
+[My corpus](https://open.spotify.com/playlist/7KtmJXjsDmw8WEdtyL28L3?si=0448a854bfd84eb5) consists of 337 tracks by the following French and Dutch rap artists and singers: Alonzo, Jul, PNL, Gims (French) and Lijpe, Boef, Sevn Alias, Josylvio (Dutch). So the corpus consists of both French and Dutch hip-hop music (raps).   
 I deliberately chose this corpus because I often like listening to French and Dutch rappers myself.  
 In terms of style and approach, French and Dutch rap are different, but both are characterized by their ability to engage with the issues and experiences of their respective communities, and both have made significant contributions to the development of hip-hop as a global cultural form. It is therefore worth researching rap music of both languages where we will look at the differences and similarities between the two.  
   
@@ -251,7 +251,11 @@ In the case of French rap music in the corpus, analyzing the chromagram can prov
 
 Analyzing the chromagram of a track of French rap such as this one could also be useful for identifying commonalities and differences between individual artists or sub-genres within French rap. For instance, it could reveal that one artist tends to use a particular tonal center or scale more frequently than others, or that certain sub-genres of French rap have distinct melodic or harmonic characteristics.
 
-Comparing the chromagrams of two French tracks (outliers), "INTRO" and "MAINTENANT" from the playlist reveals significant differences in their pitch distribution. In "INTRO", over time, the focus of the pitches is on different Chords such as C, D and G, whereas in "MAINTENANT", there is a strong concentration of pitches around chord B and G. This means that "INTRO" is more complex and it has more different chord progressions.
+Comparing the chromagrams of two French tracks (outliers), "INTRO" and "MAINTENANT" from the playlist reveals significant differences in their pitch distribution. In "INTRO", over time, the focus of the pitches is on different Chords such as C, D and G. The song features an atmospheric and ethereal instrumental that gradually builds up with layers of strings and synths. and because of this reason the song contains different pitch classes that seem to be prevalent during the song (from beginning to the end, there are different pitch classes at all). 
+In "MAINTENANT", there is a strong concentration of pitches around chord B and G. The song features a mixture of French and Spanish lyrics, with a blend of pop, reggaeton, and African rhythms and starts with an atmospheric and dreamy instrumental with a pulsing beat that creates a sense of anticipation (The pitches sound the same throughout the entire track). 
+This means that "INTRO" is more complex and it has more different chord progressions.
+
+
 
 ```{=html}
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6H8njIysTyNsjD5CyPtqwN?utm_source=generator" width="100%" height="60%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
@@ -956,8 +960,22 @@ compmus23class_features |>
 *** 
 In these plots, the features "speechiness" are plotted against the 9th coefficient of the timbre vector. Additionally, the size of the bubbles represents the strength of the energy. Unfortunately, there are few data points used in this plot, which makes generalization and drawing conclusions less reliable and accurate. However, we can clearly see that French rap has lower speechiness and higher c09, while Dutch rap has a lower average c09 but a slightly higher speechiness. It is also evident that the tracks form clusters on their own.
 
-Conclusion 
+Conclusion and Discussion
 =========================================
-In this portfolio, the differences and similarities between French and Dutch rap music were explored through a collection of 300 tracks by French and Dutch rap artists. The portfolio found that French rap is characterized by its strong tradition of chanson and the incorporation of African and Caribbean music, while Dutch rap incorporates elements of gabber and house. Both groups use a fast and energetic flow, but there are differences in tempo and energy levels. The portfolio also analyzed the chromagrams of individual tracks, revealing differences in pitch distribution and chord progressions. Overall, the portfolio provides insight into the unique characteristics of French and Dutch rap and how they contribute to the development of hip-hop as a global cultural form.
+Conclusion:
+In this portfolio, I examined the differences and similarities between French and Dutch rap music through a corpus of 300 tracks from artists such as Alonzo, Jul, PNL, Gims, Lijpe, Boef, Sevn Alias, and Josylvio. French rap is characterized by chanson and incorporation of African and Caribbean music while Dutch rap includes elements of gabber and house. The selection of rappers and genres is representative of both languages and the tracks are all categorized as hip-hop or rap music.
 
+The tempo of Dutch raps is generally lower than French raps, and the distribution of tempo is narrower. French raps also tend to have a higher valence and energy, and may give more energy to listeners. The distribution of key modes is similar in both cases. However, there may be differences in the timbre coefficients, with coefficient 7 potentially being a marker distinguishing the two genres.
+
+Furthermore, Dutch tracks have a relatively narrow range of tempo between 90 and 105 BPM, whereas the tempo of French tracks is more evenly distributed between 90 and 150 BPM. Additionally, the tempo changes in Dutch rap tracks are more frequent than in French rap tracks, as evidenced by the tempograms of "Au DD" and "Treinstation". In "Au DD", the tempo changes occur towards the end of the track and can be attributed to changes in the level of instrumentalness and speechiness, whereas in "Treinstation", tempo changes occur due to the introduction of new instruments and dropping out of existing instruments. The tempogram of "Treinstation" also shows more highlights, indicating more significant variations in tempo compared to "Au DD."
+
+It can also be concluded that French and Dutch raps differ from each other both in terms of language (of course) and some interesting features. Surprisingly, the clustering analysis showed that there are two main clusters, with the left cluster consisting mostly of Dutch raps and the right cluster consisting mostly of French raps. The heatmap analysis revealed that Dutch raps differ from French raps in terms of features such as speechiness and the 9th coefficient of the timbre vector, which are stronger in Dutch raps than in French raps. On the other hand, French raps differ from Dutch raps in terms of features such as instrumentalness, tempo, and the 12th coefficient of the timbre vector. The analysis also showed that the most important features in distinguishing between French and Dutch raps are speechiness, the 9th coefficient of the timbre vector, and instrumentalness. As you can see, the plots of speechiness against the 9th coefficient of the timbre vector showed that French rap has lower speechiness and higher c09, while Dutch rap has a lower average c09 but a slightly higher speechiness.
+
+So, there is clearly a difference between French an Dutch Hip-Hop music!
+
+
+Discussion:
+Of course, there are a number of points that should be discussed. For example, the corpus contained only 337 tracks, which is actually not enough to draw conclusions about the differences between French and Dutch rap. Furthermore, I tried to add an equal number of Dutch and French tracks to the playlist. I did this to be able to draw a fair and unbiased conclusion despite the low number of tracks in my playlist.
+
+In addition, there is also the question of whether the artists I have chosen are representative enough to belong to the same genre. Despite this, there have been some nice results. However, diagrams such as chromagrams, cepstrograms, etc. have had less added value to the overall conclusion drawn at the end of this portfolio. Perhaps they would have more value if I were to select multiple tracks from both languages and look at their chromagrams, cepstrograms, and keygrams. However, that would take more time. Considering the time of this course, I am satisfied with the results obtained. I enjoyed it and learned a lot from it.
 
