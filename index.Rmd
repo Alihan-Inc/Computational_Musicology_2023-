@@ -254,10 +254,10 @@ Analyzing the chromagram of a track of French rap such as this one could also be
 Comparing the chromagrams of two French tracks (outliers), "INTRO" and "MAINTENANT" from the playlist reveals significant differences in their pitch distribution. In "INTRO", over time, the focus of the pitches is on different Chords such as C, D and G, whereas in "MAINTENANT", there is a strong concentration of pitches around chord B and G. This means that "INTRO" is more complex and it has more different chord progressions.
 
 ```{=html}
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6H8njIysTyNsjD5CyPtqwN?utm_source=generator" width="80%" height="100%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6H8njIysTyNsjD5CyPtqwN?utm_source=generator" width="100%" height="60%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
 ```
 ```{=html}
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5y2WMZ9UAYsA7qxRENID6l?utm_source=generator" width="100%" height="80%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5y2WMZ9UAYsA7qxRENID6l?utm_source=generator" width="100%" height="60%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
 ```
 
 Column 
@@ -324,10 +324,10 @@ On the one hand, in "Au DD", there isn't significantly a strong concentration (m
 On the other hand, "Treinstation" has more variation in different frequency ranges , with a stronger concentration of timbral characteristics around a certain frequency range. This could create a more unique and interesting sound for this piece. 
 
 ```{=html}
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/115Hll8WWkQLeiDyXpgr47?utm_source=generator" width="100%" height="80%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/115Hll8WWkQLeiDyXpgr47?utm_source=generator" width="100%" height="60%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
 ```
 ```{=html}
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7yHf12Fxf8I1Q8Lhq6XqpZ?utm_source=generator" width="100%" height="80%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7yHf12Fxf8I1Q8Lhq6XqpZ?utm_source=generator" width="100%" height="60%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
 ```
 
 Column
@@ -422,11 +422,11 @@ The timbre-based self-similarity matrix (which refers to the tone color or quali
 The chroma-based self-similarity matrix (which refers to the pitch content of the music) of a recording of Boef; Treinstation” shows clearly small parallel lines indicating repeated patterns in the sound, whereas The chroma-based self-similarity matrix for "Au DD" does not.  
 
 ```{=html}
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/115Hll8WWkQLeiDyXpgr47?utm_source=generator" width="100%" height="80%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/115Hll8WWkQLeiDyXpgr47?utm_source=generator" width="100%" height="60%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
 ```
 
 ```{=html}
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7yHf12Fxf8I1Q8Lhq6XqpZ?utm_source=generator" width="100%" height="80%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7yHf12Fxf8I1Q8Lhq6XqpZ?utm_source=generator" width="100%" height="60%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
 ```
 
 Column
@@ -526,10 +526,10 @@ The recording of GIMS; Apres Vous Madame is in the key of Am en Em and this is a
 Furthermore, the recording of Boef; Probleem is in the key of GM, F, Eb, Cm and Dm. From the Keygram, this can also be seen if we look at G: min and and C: min, for example. After the 100th seconds, things get a bit worse. The keyrgram is getting worse. 
 
 ```{=html}
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1kVQzCxcSVhqf4rLJyGk50?utm_source=generator" width="100%" height="80%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1kVQzCxcSVhqf4rLJyGk50?utm_source=generator" width="100%" height="60%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
 ```
 ```{=html}
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1L8sanepRgDJlQTsPQ4mU1?utm_source=generator" width="100%" height="80%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1L8sanepRgDJlQTsPQ4mU1?utm_source=generator" width="100%" height="60%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
 ```
 Column
 -------------------------------------
@@ -721,7 +721,7 @@ audd |>
 The following plot is a Tempogram for "Au DD". As it happens, the track has a relatively steady tempo with occasional variations. I think taht these variations (highlights) are visual noise which is a product of tempo octaves. From the 150th seconds onwards, you can see that the relatively stable pattern changes to a higher tempo (between 150th and 170th second) and suddenly to a lower tempo (around 175th second). This can be attributed to the fact that between 150th and 170th second there is more music dropping out paired with a higher instrumentalness and speechiness. In the 175th second, there is a short silence both in speechiness and music overall. Furthermore, at the end, it can be seen that there is more frequent tempo changes, which can be explained by the sluggish instrument playing (usually every track ends like this). In the tempogram of this track the highlights at the end, seen in it's self similarity matrices are visible. 
 
 ```{=html}
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/115Hll8WWkQLeiDyXpgr47?utm_source=generator" width="100%" height="80%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/115Hll8WWkQLeiDyXpgr47?utm_source=generator" width="100%" height="60%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
 ```
 
 ### Tempograms of a recording of Boef; Treinstation” (Dutch)
@@ -741,7 +741,7 @@ treinstation |>
 As compared to the previous track "Au DD", this track "Treinstation" exhibits more frequent tempo changes and has more highlights besides its relatively stable tempo curve. from the moment the 30 tyh second is reached, the tempo curve leaves its stability for a short time (around 30 seconds) due to the change in instruments. This also happens in the 80 th second where more instruments drop out. In the tempogram of this track, the change in tempo curve could also be seen in the self similarity matrices, especially at points where some pieces get repeated (parallel lines to the diagonal). 
 
 ```{=html}
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7yHf12Fxf8I1Q8Lhq6XqpZ?utm_source=generator" width="100%" height="80%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7yHf12Fxf8I1Q8Lhq6XqpZ?utm_source=generator" width="100%" height="60%" frameBorder="0" allowtransparency="true" allow="encrypted-media" data-external="1"></iframe>
 ```
 
 Dendrograms and  Feature Importance{.storyboard} 
@@ -809,21 +809,9 @@ compmus23clus <-
 compmus23_juice <-
   recipe(
     track.name ~
-      danceability +
-      energy +
-      loudness +
       speechiness +
-      acousticness +
       instrumentalness +
-      liveness +
-      valence +
-      tempo +
-      duration +
-      C + `C#|Db` + D + `D#|Eb` +
-      E + `F` + `F#|Gb` + G +
-      `G#|Ab` + A + `A#|Bb` + B +
-      c01 + c02 + c03 + c04 + c05 + c06 +
-      c07 + c08 + c09 + c10 + c11 + c12,
+      tempo + `C#|Db`+ c06 +  c08 + c09 + c12,
     data = compmus23clus
   ) |>
   step_center(all_predictors()) |>
@@ -836,7 +824,7 @@ compmus23_juice <-
 compmus23_dist <- dist(compmus23_juice, method = "euclidean")
 #___________________________________________________________________________________________________________________
 compmus23_dist |> 
-     hclust(method = "average") |> 
+     hclust(method = "complete") |> 
      dendro_data() |>
      ggdendrogram()
 ```
@@ -853,7 +841,7 @@ The histogram shows the overall estimated tempo of each track in both corpora (F
 heatmaply(
   compmus23_juice,
   hclustfun = hclust,
-  hclust_method = "average",  # Change for single, average, or complete linkage.
+  hclust_method = "complete",  # Change for single, average, or complete linkage.
   dist_method = "euclidean"
 )
 ```
